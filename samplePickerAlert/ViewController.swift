@@ -55,8 +55,21 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
         
         //row:選択さえれた項目が何行目か
         print(teaList[row])
+        
+        //部品となるアラート作成
+        let alert = UIAlertController(title: "紅茶の選択", message: "これでよろしいですか？", preferredStyle: .alert)
+        
+        //アラートにOKボタンを追加
+        //handler : OKボタンが押された時に、行いたい処理に指定する場所
+        //alert.addAction(UIAlertAction(title: "OPPAI", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in print("OKが押されました。")}))
+        
+        //アラートの表示
+        //completion: 動作が完了した後に発動される処理を指示
+        //present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: {() -> Void in print("選択処理を完了します。")})
+        
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
